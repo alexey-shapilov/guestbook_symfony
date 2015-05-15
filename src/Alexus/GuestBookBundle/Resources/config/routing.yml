@@ -1,0 +1,3 @@
+alexus_guest_book_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: AlexusGuestBookBundle:Default:index }

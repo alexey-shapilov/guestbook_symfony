@@ -1,0 +1,7 @@
+alexus_guest_book:
+    resource: "@AlexusGuestBookBundle/Resources/config/routing.yml"
+    prefix:   /guestbook
+#
+#app:
+#    resource: "@AppBundle/Controller/"
+#    type:     annotation
