@@ -3,6 +3,7 @@
 namespace Alexus\GuestBookBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -20,23 +21,36 @@ class Feedback {
 
     /**
      * @ORM\Column(type="datetime", name="$create_at")
+     *
+     * @Assert\DateTime(
+     *      message = "feedback.create_at.date_time"
+     * )
      */
     protected $createAt;
 
     /**
      * @ORM\Column(type="string", length=100)
+     *
+     * @Assert\NotBlank(
+     *      message = "feedback.author.not_blank"
+     * )
      */
     protected $author;
 
     /**
      * @ORM\Column(type="text")
+     *
+     * @Assert\NotBlank(
+     *      message = "feedback.text.not_blank"
+     * )
      */
     protected $text;
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
+     *
      */
     public function getId()
     {
@@ -49,9 +63,9 @@ class Feedback {
      * @param \DateTime $createAt
      * @return Feedback
      */
-    public function setCreateAt($createAt)
+    public function setCreateAt()
     {
-        $this->createAt = $createAt;
+        $this->createAt = new \DateTime();
 
         return $this;
     }

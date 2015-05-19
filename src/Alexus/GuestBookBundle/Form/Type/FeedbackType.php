@@ -4,11 +4,22 @@ namespace Alexus\GuestBookBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class FeedbackType extends AbstractType {
 
     public function builForm(FormBuilderInterface $builder, array $options){
-        $builder->add('');
+        $builder
+            ->add('author')
+            ->add('text')
+            ->add('save', 'submit', array('label' => 'Create Task'));
+    }
+
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setDefaults(array(
+            'data_class' => 'Alexus\GuestBookBundle\Entity\Feedback',
+        ));
     }
 
     /**

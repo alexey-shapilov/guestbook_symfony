@@ -2,4 +2,10 @@
 
 {% block body %}
     Hello {{ name }}!
+    {{ form_start(form) }}
+        {{ form_errors(form) }}
+
+        {{ form_row(form.author) }}
+        {{ form_row(form.text) }}
+    {{ form_end(form) }}
 {% endblock %}
