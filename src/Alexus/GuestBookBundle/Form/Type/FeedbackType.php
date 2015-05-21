@@ -8,11 +8,16 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class FeedbackType extends AbstractType {
 
-    public function builForm(FormBuilderInterface $builder, array $options){
+    public function buildForm(FormBuilderInterface $builder, array $options){
         $builder
             ->add('author')
-            ->add('text')
-            ->add('save', 'submit', array('label' => 'Create Task'));
+            ->add('text', null, array(
+                'attr' => array(
+                    'class' => 'tinymce',
+                    'data-theme' => 'bbcode' // Skip it if you want to use default theme
+                )
+            ))
+            ->add('save', 'submit', array('label' => 'Оставить запись'));
     }
 
     public function configureOptions(OptionsResolver $resolver)

@@ -63,9 +63,9 @@ class Feedback {
      * @param \DateTime $createAt
      * @return Feedback
      */
-    public function setCreateAt()
+    public function setCreateAt(\DateTime $createAt)
     {
-        $this->createAt = new \DateTime();
+        $this->createAt = $createAt;
 
         return $this;
     }

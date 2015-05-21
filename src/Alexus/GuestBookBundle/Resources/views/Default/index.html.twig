@@ -2,10 +2,9 @@
 
 {% block body %}
     Hello {{ name }}!
-    {{ form_start(form) }}
-        {{ form_errors(form) }}
+    {{ form(form) }}
+{% endblock %}
 
-        {{ form_row(form.author) }}
-        {{ form_row(form.text) }}
-    {{ form_end(form) }}
+{% block javascripts %}
+    {{ tinymce_init() }}
 {% endblock %}
