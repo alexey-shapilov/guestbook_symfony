@@ -28,6 +28,16 @@ class DefaultController extends Controller
             $em->flush();
         }
 
-        return $this->render('AlexusGuestBookBundle:Default:index.html.twig', array('name' => $name, 'form' => $form->createView()));
+        $repository = $this->getDoctrine()->getRepository('AlexusGuestBookBundle:Feedback');
+        $messages = $repository->findAll();
+
+        return $this->render(
+            'AlexusGuestBookBundle:Default:index.html.twig',
+            array(
+                'name' => $name,
+                'form' => $form->createView(),
+                'messages' => $messages
+            )
+        );
     }
 }

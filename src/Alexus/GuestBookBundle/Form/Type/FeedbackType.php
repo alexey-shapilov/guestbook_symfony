@@ -10,8 +10,13 @@ class FeedbackType extends AbstractType {
 
     public function buildForm(FormBuilderInterface $builder, array $options){
         $builder
-            ->add('author')
+            ->add('author', null,
+                array(
+                    'label' => 'Автор: '
+                )
+            )
             ->add('text', null, array(
+                'label' => 'Сообщение: ',
                 'attr' => array(
                     'class' => 'tinymce',
                     'data-theme' => 'bbcode' // Skip it if you want to use default theme

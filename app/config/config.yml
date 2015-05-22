@@ -71,3 +71,26 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+# TinyMCE Configuration
+stfalcon_tinymce:
+    include_jquery: false
+    theme:
+        advanced:
+           plugins:
+               - "advlist autolink lists link image charmap print preview hr anchor pagebreak"
+               - "searchreplace wordcount visualblocks visualchars code fullscreen"
+               - "insertdatetime media nonbreaking save table contextmenu directionality"
+               - "emoticons template paste textcolor"
+        bbcode:
+           plugins: ["bbcode, code, link, preview"]
+           menubar: false
+           toolbar1: "bold,italic,underline,undo,redo,link,unlink,removeformat,cleanup,code,preview"
+
+fm_bbcode:
+    filter_sets:
+        my_default_filter:
+            strict: false # if you want to parse attr values without quotes
+            locale: ru
+            xhtml: true
+            filters: [ default ]
